@@ -1,0 +1,4 @@
+13,11,19,Barkus
+13,12,10,Aslkesa
+10,10,14,Leahoia
+10,14,10,Bheakass

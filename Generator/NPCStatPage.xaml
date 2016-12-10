@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Generator.NPCStatPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Generator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="400">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="backButton" Icon="Back" Label="Go Back" Click="backButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="nameBlock" HorizontalAlignment="Left" Margin="44,39,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="44,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="dexBox" HorizontalAlignment="Left" Margin="146,128,0,0" TextWrapping="Wrap" Text="" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" VerticalAlignment="Top"/>
+        <TextBlock x:Name="genDexLabel" HorizontalAlignment="Left" Margin="146,105,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" ToolTipService.ToolTip="Dexterity" Height="20" Width="76"/>
+        <TextBox x:Name="intBox" HorizontalAlignment="Left" Margin="146,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBlock x:Name="genIntLabel" HorizontalAlignment="Left" Margin="146,165,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" ToolTipService.ToolTip="Intelligence" Height="20" Width="97"/>
+        <TextBox x:Name="strBox" HorizontalAlignment="Left" Margin="44,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBlock x:Name="genStrLabel" HorizontalAlignment="Left" Margin="44,105,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" ToolTipService.ToolTip="Strength" Height="20" Width="57"/>
+        <TextBlock x:Name="genContText" HorizontalAlignment="Left" Margin="45,165,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top"/>
+        <TextBox x:Name="contBox" HorizontalAlignment="Left" Margin="46,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBlock x:Name="genWisLabel" HorizontalAlignment="Left" Margin="46,225,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top"/>
+        <TextBlock x:Name="genCharLabel" HorizontalAlignment="Left" Margin="146,225,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top"/>
+        <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="46,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="146,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+    </Grid>
+</Page>
