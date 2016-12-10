@@ -28,7 +28,7 @@
             <RowDefinition Height="349*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Stroke="Black" Fill="Beige" Margin="2.333,2,-2,-2" />
@@ -65,7 +65,7 @@
         <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
         <Button x:Name="viewStatsButton" Content="View Selected NPC Stats" Grid.Column="1" HorizontalAlignment="Stretch" Margin="24.333,241,12,0" VerticalAlignment="Top" Padding="1" Click="viewStatsButton_Click" Background="#FFCFCFCF"/>
         <TextBlock x:Name="genStatsText" HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="Stats To Generate" VerticalAlignment="Top" Width="119"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="199,102,0,0" VerticalAlignment="Top" Width="96" IsSynchronizedWithCurrentItem="False" PlaceholderText="Type">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="206,101,0,0" VerticalAlignment="Top" Width="145" IsSynchronizedWithCurrentItem="False" PlaceholderText="Type">
             <TextBlock x:Name="merchant" Text="Merchant" PointerReleased="radioButtonType_Click" />
             <TextBlock x:Name="fighter" Text="Fighter" PointerReleased="radioButtonType_Click"/>
             <TextBlock x:Name="mage" Text="Mage" PointerReleased="radioButtonType_Click"/>

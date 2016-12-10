@@ -64,7 +64,7 @@ namespace Generator
         {
             return strength.ToString() + "," + dexterity.ToString() + "," +
                 constitution.ToString() + "," + intelligence.ToString() + "," +
-                wisdom.ToString() + "," + charisma.ToString() + "," + name;
+                wisdom.ToString() + "," + charisma.ToString() + "," + npcType + name;
         }
 
     }
