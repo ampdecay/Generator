@@ -18,20 +18,10 @@ using Windows.Storage.Pickers;
 using Windows.Storage;
 using Windows.UI.Popups;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Generator
 {
-
-    /// <summary>
-    /// Defines the minimum and maximum range of the NPC stats 
-    /// Max is non inclusive
-    /// </summary>
-    public class Range
-    {
-        public const int min = 10;
-        public const int max = 21;
-    }
+    
     /// <summary>
     /// Main interface
     /// </summary>
@@ -166,9 +156,19 @@ namespace Generator
             wisBox.Text = "";
             charBox.Text = "";
         }
-       
-
-
+        /// <summary>
+        /// Generates the values to place into the text boxes
+        /// </summary>
+        private void generateStats()
+        {
+            strBox.Text = stat.Next(Range.min, Range.max).ToString();
+            dexBox.Text = stat.Next(Range.min, Range.max).ToString();
+            contBox.Text = stat.Next(Range.min, Range.max).ToString();
+            intBox.Text = stat.Next(Range.min, Range.max).ToString();
+            wisBox.Text = stat.Next(Range.min, Range.max).ToString();
+            charBox.Text = stat.Next(Range.min, Range.max).ToString();
+        }
+        
 
         //EVENTS
         private void loadText_Click(object sender, RoutedEventArgs e)
@@ -181,12 +181,7 @@ namespace Generator
         }
         private void genButton_Click(object sender, RoutedEventArgs e)
         {
-            strBox.Text = stat.Next(Range.min,Range.max).ToString();
-            dexBox.Text = stat.Next(Range.min, Range.max).ToString();
-            contBox.Text = stat.Next(Range.min, Range.max).ToString();
-            intBox.Text = stat.Next(Range.min, Range.max).ToString();
-            wisBox.Text = stat.Next(Range.min, Range.max).ToString();
-            charBox.Text = stat.Next(Range.min, Range.max).ToString();
+            generateStats();
         }
         private void addToList_Click(object sender, RoutedEventArgs e)
         {
