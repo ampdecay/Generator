@@ -29,5 +29,7 @@
         <TextBlock x:Name="genCharLabel" HorizontalAlignment="Left" Margin="146,225,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top"/>
         <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="46,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
         <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="146,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBlock x:Name="typeBlock" HorizontalAlignment="Left" Margin="146,39,0,0" TextWrapping="Wrap" Text="Type" VerticalAlignment="Top"/>
+        <TextBox x:Name="typeBox" HorizontalAlignment="Left" Margin="146,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
     </Grid>
 </Page>

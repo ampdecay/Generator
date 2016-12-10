@@ -35,6 +35,7 @@ namespace Generator
         private void displayStats()
         {
             nameBox.Text = npc.Name;
+            typeBox.Text = npc.Type;
             strBox.Text = npc.Strength.ToString();
             dexBox.Text = npc.Dexterity.ToString();
             contBox.Text = npc.Constitution.ToString();
@@ -64,6 +65,7 @@ namespace Generator
             wisBox.Text = "";
             intBox.Text = "";
             charBox.Text = "";
+            typeBox.Text = "";
         }
 
         //EVENTS

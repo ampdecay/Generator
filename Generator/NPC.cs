@@ -20,6 +20,7 @@ namespace Generator
         private int wisdom;
         private int charisma;
         private string name;
+        private string npcType;
 
         //properties
         public int Strength { get { return strength; } set { strength = value; } }
@@ -29,6 +30,7 @@ namespace Generator
         public int Wisdom { get { return wisdom; } set { wisdom = value; } }
         public int Charisma { get { return charisma; } set { charisma = value; } }
         public string Name { get { return name; } set { name = value; } }
+        public string Type {get { return npcType; } set { npcType = value; } }
 
         //constructor
         public NPC() { }
@@ -56,6 +58,13 @@ namespace Generator
         public override string ToString()
         {
             return name;
+        }
+
+        public string npcToText()
+        {
+            return strength.ToString() + "," + dexterity.ToString() + "," +
+                constitution.ToString() + "," + intelligence.ToString() + "," +
+                wisdom.ToString() + "," + charisma.ToString() + "," + name;
         }
 
     }

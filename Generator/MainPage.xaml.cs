@@ -42,7 +42,6 @@ namespace Generator
         /// </summary>
         private async void saveToFile()
         {
-            string parsedNPC;
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             savePicker.FileTypeChoices.Add("NPC List", new List<string>() { ".npc" });
@@ -51,10 +50,9 @@ namespace Generator
             if (file != null)
             {
                 await FileIO.WriteTextAsync(file, string.Empty);
-                foreach (var NPC in npcList.Items)
+                foreach (NPC NPC in npcList.Items)
                 {
-                    parsedNPC = npc2Text((NPC)NPC);
-                    await FileIO.AppendTextAsync(file, parsedNPC);
+                    await FileIO.AppendTextAsync(file, NPC.npcToText());
                     await FileIO.AppendTextAsync(file, Environment.NewLine);
                 }
             }
@@ -77,7 +75,7 @@ namespace Generator
                 {
                     splitLine = line.Split(',');
                     if (splitLine.Length == 7)
-                        createdNPC(splitLine);
+                        npcFromFile(splitLine);
                 }
                 //SELECT FIRST ITEM IN LIST
                 npcList.SelectedIndex = 0;
@@ -85,30 +83,10 @@ namespace Generator
             }
         }
         /// <summary>
-        /// Helper Function for saveToFile()
-        /// </summary>
-        /// <param name="_NPC"></param>
-        /// <returns></returns>
-        private string npc2Text(NPC NPC)
-        {
-            string str, dex, cont, intell, wisd, charisma;
-            string name;
-            str = NPC.Strength.ToString();
-            dex = NPC.Dexterity.ToString();
-            cont = NPC.Constitution.ToString();
-            intell = NPC.Intelligence.ToString();
-            wisd = NPC.Wisdom.ToString();
-            charisma = NPC.Charisma.ToString();
-            name = NPC.Name;
-            return str + "," + dex + "," + cont + ","
-                + intell + "," + wisd + "," +
-                charisma + "," + name;
-        }
-        /// <summary>
         /// helper function for loading from files
         /// </summary>
         /// <param name="splitLine"></param>
-        private void createdNPC(string[] splitLine)
+        private void npcFromFile(string[] splitLine)
         {
             int str, dex, intell, cont, wis, charisma;
             string name;
@@ -131,17 +109,39 @@ namespace Generator
         /// </summary>
         private void addToList()
         {
+          
+            npcList.Items.Add(createNPC());
+            npcList.SelectedIndex = (npcList.Items.Count) - 1;
+            clearGenStats();
+        }
+        /// <summary>
+        /// Creates an NPC from the stats generated on page
+        /// </summary>
+        /// <returns>NPC</returns>
+        private NPC createNPC()
+        {
             int str, dex, cont, intell, wis, charisma;
-            string tempName = nameBox.Text;
+            NPC npcToReturn;
             int.TryParse(strBox.Text, out str);
             int.TryParse(dexBox.Text, out dex);
             int.TryParse(contBox.Text, out cont);
             int.TryParse(intBox.Text, out intell);
             int.TryParse(wisBox.Text, out wis);
             int.TryParse(charBox.Text, out charisma);
-            npcList.Items.Add(new NPC(str, dex, cont, intell, wis, charisma, nameBox.Text));
-            npcList.SelectedIndex = (npcList.Items.Count) - 1;
-            clearGenStats();
+            //create npc with basic stats first
+            npcToReturn = new NPC(str, dex, cont, intell, wis, charisma, nameBox.Text);
+            //set additional stats for npc
+            setType(npcToReturn);
+            return npcToReturn;
+        }
+        /// <summary>
+        /// Sets the Type for the NPC from the selected radio button in the combo box
+        /// </summary>
+        /// <param name="npc"></param>
+        private void setType(NPC npc)
+        {
+            TextBlock type = (TextBlock)comboBox.SelectedItem;
+            npc.Type = type.Text;
         }
         /// <summary>
         /// Clears all Stats for the Generator
@@ -155,6 +155,7 @@ namespace Generator
             contBox.Text = "";
             wisBox.Text = "";
             charBox.Text = "";
+            comboBox.SelectedIndex = -1;
         }
         /// <summary>
         /// Generates the values to place into the text boxes

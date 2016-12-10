@@ -5,8 +5,8 @@
     xmlns:local="using:Generator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="400" Width="425
-    " Background="Gray">
+    mc:Ignorable="d" Height="400" Width="600 "
+    Background="Gray">
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.Content>
@@ -32,7 +32,7 @@
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Stroke="Black" Fill="Beige" Margin="2.333,2,-2,-2" />
-        <Rectangle Grid.Column="0" Stroke="Black" Fill="AliceBlue" Margin="2,2,209,-2" Grid.ColumnSpan="2" />
+        <Rectangle Grid.Column="0" Stroke="Black" Fill="AliceBlue" Margin="2,2,0,-2" />
         <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="23,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164" Height="32" PlaceholderText="Please Enter A Name"/>
         <TextBox x:Name="dexBox" HorizontalAlignment="Left" Margin="123,101,0,0" TextWrapping="Wrap" Text="" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" VerticalAlignment="Top"/>
         <Button x:Name="genButton" Content="Generate" HorizontalAlignment="Left" Margin="22,267,0,0" VerticalAlignment="Top" Click="genButton_Click" Height="32" Width="79">
@@ -65,10 +65,10 @@
         <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
         <Button x:Name="viewStatsButton" Content="View Selected NPC Stats" Grid.Column="1" HorizontalAlignment="Stretch" Margin="24.333,241,12,0" VerticalAlignment="Top" Padding="1" Click="viewStatsButton_Click" Background="#FFCFCFCF"/>
         <TextBlock x:Name="genStatsText" HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="Stats To Generate" VerticalAlignment="Top" Width="119"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="111,266,0,0" VerticalAlignment="Top" Width="93" IsSynchronizedWithCurrentItem="False">
-            <RadioButton Content="Merchant" Click="radioButtonType_Click"/>
-            <RadioButton Content="Fighter" Click="radioButtonType_Click"/>
-            <RadioButton Content="Mage" Click="radioButtonType_Click"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="199,102,0,0" VerticalAlignment="Top" Width="96" IsSynchronizedWithCurrentItem="False" PlaceholderText="Type">
+            <TextBlock x:Name="merchant" Text="Merchant" PointerReleased="radioButtonType_Click" />
+            <TextBlock x:Name="fighter" Text="Fighter" PointerReleased="radioButtonType_Click"/>
+            <TextBlock x:Name="mage" Text="Mage" PointerReleased="radioButtonType_Click"/>
         </ComboBox>
     </Grid>
 </Page>
