@@ -217,7 +217,10 @@ namespace Generator
         {
             this.Frame.Navigate(typeof(NPCStatPage),npcList.SelectedItem);
         }
-
-        
+        private void radioButtonType_Click(object sender, RoutedEventArgs e)
+        {
+            comboBox.IsDropDownOpen = false;
+            comboBox.SelectedItem = sender;
+        }
     }
 }

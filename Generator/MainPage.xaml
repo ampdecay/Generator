@@ -65,5 +65,10 @@
         <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
         <Button x:Name="viewStatsButton" Content="View Selected NPC Stats" Grid.Column="1" HorizontalAlignment="Stretch" Margin="24.333,241,12,0" VerticalAlignment="Top" Padding="1" Click="viewStatsButton_Click" Background="#FFCFCFCF"/>
         <TextBlock x:Name="genStatsText" HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="Stats To Generate" VerticalAlignment="Top" Width="119"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="111,266,0,0" VerticalAlignment="Top" Width="93" IsSynchronizedWithCurrentItem="False">
+            <RadioButton Content="Merchant" Click="radioButtonType_Click"/>
+            <RadioButton Content="Fighter" Click="radioButtonType_Click"/>
+            <RadioButton Content="Mage" Click="radioButtonType_Click"/>
+        </ComboBox>
     </Grid>
 </Page>
