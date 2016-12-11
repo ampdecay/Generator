@@ -20,7 +20,7 @@
             <ColumnDefinition Width="Auto" MinWidth="117"/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="nameBlock" HorizontalAlignment="Left" Margin="44,39,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="20" Width="40"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="44,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Left" Height="32" Width="64"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="44,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Left" Height="32"/>
         <TextBox x:Name="dexBox" HorizontalAlignment="Left" Margin="20,127,0,0" TextWrapping="Wrap" Text="" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" VerticalAlignment="Top" Grid.Column="1"/>
         <TextBlock x:Name="genDexLabel" HorizontalAlignment="Left" Margin="20,104,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" ToolTipService.ToolTip="Dexterity" Height="20" Width="76" Grid.Column="1"/>
         <TextBox x:Name="intBox" HorizontalAlignment="Left" Margin="20,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" Grid.Column="1"/>
@@ -34,6 +34,6 @@
         <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="46,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" Height="32" Width="64"/>
         <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="20,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" Height="32" Width="64"/>
         <TextBlock x:Name="typeBlock" HorizontalAlignment="Left" Margin="20,38,0,0" TextWrapping="Wrap" Text="Type" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="31"/>
-        <TextBox x:Name="typeBox" HorizontalAlignment="Left" Margin="20,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Right" Grid.Column="1" Height="32" Width="64"/>
+        <TextBox x:Name="typeBox" HorizontalAlignment="Left" Margin="20,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Right" Grid.Column="1" Height="32"/>
     </Grid>
 </Page>
