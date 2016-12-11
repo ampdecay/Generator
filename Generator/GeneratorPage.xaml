@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="Generator.GeneratorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Generator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="backButton" Icon="Back" Label="appbarbutton" Click="backButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="23,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164" Height="32" PlaceholderText="Please Enter A Name"/>
+        <TextBox x:Name="dexBox" HorizontalAlignment="Left" Margin="123,101,0,0" TextWrapping="Wrap" Text="" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" VerticalAlignment="Top"/>
+        <Button x:Name="genButton" Content="Generate" HorizontalAlignment="Left" Margin="22,267,0,0" VerticalAlignment="Top" Click="genButton_Click" Height="32" Width="79">
+            <Button.Background>
+                <SolidColorBrush Color="#FFCFCFCF"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="genDexLabel" HorizontalAlignment="Left" Margin="123,78,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" ToolTipService.ToolTip="Dexterity" Height="20" Width="76"/>
+        <TextBox x:Name="intBox" HorizontalAlignment="Left" Margin="123,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBlock x:Name="genIntLabel" HorizontalAlignment="Left" Margin="123,138,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" ToolTipService.ToolTip="Intelligence" Height="20" Width="97" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="strBox" HorizontalAlignment="Left" Margin="21,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBlock x:Name="genStrLabel" HorizontalAlignment="Left" Margin="21,78,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" ToolTipService.ToolTip="Strength" Height="20" Width="57"/>
+        <Button x:Name="addButton" Content="Add To List" HorizontalAlignment="Left" Margin="115,267,0,0" VerticalAlignment="Top" Click="addToList_Click" Height="32" Width="100" Background="#FFCFCFCF"/>
+        <TextBlock x:Name="genContText" HorizontalAlignment="Left" Margin="22,138,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top"/>
+        <TextBox x:Name="contBox" HorizontalAlignment="Left" Margin="23,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBlock x:Name="genWisLabel" HorizontalAlignment="Left" Margin="23,198,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top"/>
+        <TextBlock x:Name="genCharLabel" HorizontalAlignment="Left" Margin="123,198,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top"/>
+        <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="23,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBlock x:Name="genStatsText" HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="Stats To Generate" VerticalAlignment="Top" Width="119"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="206,101,0,0" VerticalAlignment="Top" Width="145" IsSynchronizedWithCurrentItem="False" PlaceholderText="Type">
+            <TextBlock x:Name="merchant" Text="Merchant" PointerReleased="radioButtonType_Click" />
+            <TextBlock x:Name="fighter" Text="Fighter" PointerReleased="radioButtonType_Click"/>
+            <TextBlock x:Name="mage" Text="Mage" PointerReleased="radioButtonType_Click"/>
+        </ComboBox>
+
+    </Grid>
+</Page>
