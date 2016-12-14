@@ -49,12 +49,9 @@ namespace Generator
             //set additional stats for npc
             setType(npcToReturn);
             setRace(npcToReturn);
+            setAlignment(npcToReturn);
             return npcToReturn;
         }
-        /// <summary>
-        /// Sets the Type for the NPC from the selected text in the typeBox
-        /// </summary>
-        /// <param name="npc"></param>
         private void setType(NPC npc)
         {
             TextBlock type = (TextBlock)typeBox.SelectedItem;
@@ -64,6 +61,12 @@ namespace Generator
         {
             TextBlock race = (TextBlock)raceBox.SelectedItem;
             npc.Race = race.Text;
+        }
+        private void setAlignment(NPC npc)
+        {
+            TextBlock align = (TextBlock)alignBox.SelectedItem;
+            npc.Alignment = align.Text;
+
         }
         /// <summary>
         /// Generates the values to place into the text boxes
