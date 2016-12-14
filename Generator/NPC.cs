@@ -21,6 +21,8 @@ namespace Generator
         private int charisma;
         private string name;
         private string npcType;
+        private string npcRace;
+        private string alignment;
 
         //properties
         public int Strength { get { return strength; } set { strength = value; } }
@@ -31,6 +33,9 @@ namespace Generator
         public int Charisma { get { return charisma; } set { charisma = value; } }
         public string Name { get { return name; } set { name = value; } }
         public string Type {get { return npcType; } set { npcType = value; } }
+        public string Race { get { return npcRace; } set { npcRace = value; } }
+        public string Alignment { get { return alignment; } set { alignment = value; } }
+
 
         //constructor
         public NPC() { }
@@ -54,17 +59,21 @@ namespace Generator
             charisma = _charisma;
             name = _name;
         }
-
+        //methods
         public override string ToString()
         {
             return name;
         }
-
+        /// <summary>
+        /// Turns all NPC stats into text to be saved to a file
+        /// </summary>
+        /// <returns></returns>
         public string npcToText()
         {
             return strength.ToString() + "," + dexterity.ToString() + "," +
                 constitution.ToString() + "," + intelligence.ToString() + "," +
-                wisdom.ToString() + "," + charisma.ToString() + "," + npcType + name;
+                wisdom.ToString() + "," + charisma.ToString() + "," + npcType + "," +
+                npcRace + "," + alignment + "," + name;
         }
 
     }

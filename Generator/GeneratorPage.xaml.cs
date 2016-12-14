@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Generator
 {
@@ -24,7 +23,8 @@ namespace Generator
     public sealed partial class GeneratorPage : Page
     {
         ListView npcList;
-        private Random stat = new Random();
+        private Random rng = new Random();
+        private Range range = new Range();
         public GeneratorPage()
         {
             this.InitializeComponent();
@@ -48,43 +48,55 @@ namespace Generator
             npcToReturn = new NPC(str, dex, cont, intell, wis, charisma, nameBox.Text);
             //set additional stats for npc
             setType(npcToReturn);
+            setRace(npcToReturn);
             return npcToReturn;
         }
         /// <summary>
-        /// Sets the Type for the NPC from the selected radio button in the combo box
+        /// Sets the Type for the NPC from the selected text in the typeBox
         /// </summary>
         /// <param name="npc"></param>
         private void setType(NPC npc)
         {
-            TextBlock type = (TextBlock)comboBox.SelectedItem;
+            TextBlock type = (TextBlock)typeBox.SelectedItem;
             npc.Type = type.Text;
         }
-        /// <summary>
-        /// Clears all Stats for the Generator
-        /// </summary>
-        private void clearGenStats()
+        private void setRace(NPC npc)
         {
-            nameBox.Text = "";
-            strBox.Text = "";
-            dexBox.Text = "";
-            intBox.Text = "";
-            contBox.Text = "";
-            wisBox.Text = "";
-            charBox.Text = "";
-            comboBox.SelectedIndex = -1;
+            TextBlock race = (TextBlock)raceBox.SelectedItem;
+            npc.Race = race.Text;
         }
         /// <summary>
         /// Generates the values to place into the text boxes
         /// </summary>
         private void generateStats()
         {
-            strBox.Text = stat.Next(Range.min, Range.max).ToString();
-            dexBox.Text = stat.Next(Range.min, Range.max).ToString();
-            contBox.Text = stat.Next(Range.min, Range.max).ToString();
-            intBox.Text = stat.Next(Range.min, Range.max).ToString();
-            wisBox.Text = stat.Next(Range.min, Range.max).ToString();
-            charBox.Text = stat.Next(Range.min, Range.max).ToString();
-            comboBox.SelectedIndex = stat.Next(0, 3);
+            setRange();
+            strBox.Text = rng.Next(range.min, range.max).ToString();
+            dexBox.Text = rng.Next(range.min, range.max).ToString();
+            contBox.Text = rng.Next(range.min, range.max).ToString();
+            intBox.Text = rng.Next(range.min, range.max).ToString();
+            wisBox.Text = rng.Next(range.min, range.max).ToString();
+            charBox.Text = rng.Next(range.min, range.max).ToString();
+            typeBox.SelectedIndex = rng.Next(0, 3);
+            raceBox.SelectedIndex = rng.Next(0, 10);
+        }
+        private void setRange()
+        {
+            TextBlock min = (TextBlock)minBox.SelectedItem;
+            TextBlock max = (TextBlock)maxBox.SelectedItem;
+            if (min != null && max != null)
+            {
+                int.TryParse(min.Text, out range.min);
+                int.TryParse(max.Text, out range.max);
+                //add 1 to max because it is non inclusive
+                range.max += 1;
+            }
+            else
+            {
+                //arbitrary default values
+                range.min = 10;
+                range.max = 21;
+            }
         }
         /// <summary>
         /// Adds NPC to the npcList
@@ -92,6 +104,7 @@ namespace Generator
         private void addToList()
         {
             npcList.Items.Add(createNPC());
+            //sets the selected index to the newly created NPC
             npcList.SelectedIndex = (npcList.Items.Count) - 1;
         }
         private async void displayAlert()
@@ -113,11 +126,7 @@ namespace Generator
                 this.Frame.GoBack();
             }
         }
-        private void radioButtonType_Click(object sender, RoutedEventArgs e)
-        {
-            comboBox.IsDropDownOpen = false;
-            comboBox.SelectedItem = sender;
-        }
+      
         private void genButton_Click(object sender, RoutedEventArgs e)
         {
             generateStats();

@@ -5,7 +5,7 @@
     xmlns:local="using:Generator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="319" Height="351">
+    mc:Ignorable="d" Width="640" Height="351">
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.Content>
@@ -16,8 +16,9 @@
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="202*" />
-            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="257*" />
+            <ColumnDefinition Width="152*"/>
+            <ColumnDefinition Width="231*"/>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="nameBlock" HorizontalAlignment="Left" Margin="44,39,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="20" Width="40"/>
         <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="44,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Left" Height="32" Width="148"/>
@@ -34,6 +35,8 @@
         <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="46,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" Height="32" Width="64"/>
         <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="20,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1" Height="32" Width="64"/>
         <TextBlock x:Name="typeBlock" HorizontalAlignment="Left" Margin="20,38,0,0" TextWrapping="Wrap" Text="Type" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="31"/>
-        <TextBox x:Name="typeBox" HorizontalAlignment="Left" Margin="20,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Right" Grid.Column="1" Height="32" Width="87"/>
+        <TextBox x:Name="typeBox" HorizontalAlignment="Left" Margin="20,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" HorizontalContentAlignment="Right" Grid.Column="1" Height="32" Width="97"/>
+        <TextBlock x:Name="raceBlock" Grid.Column="2" HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap" Text="Race" VerticalAlignment="Top"/>
+        <TextBox x:Name="raceBox" Grid.Column="2" HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True" Width="128"/>
     </Grid>
 </Page>
