@@ -5,8 +5,8 @@
     xmlns:local="using:Generator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="400" Width="600 "
-    Background="Gray">
+    mc:Ignorable="d" Height="400" 
+    Background="Gray" Width="378">
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.Content>
@@ -23,29 +23,11 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid BorderThickness="1" Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="349*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60*"/>
-            <ColumnDefinition Width="40*"/>
-        </Grid.ColumnDefinitions>
-        <Rectangle Grid.Column="1" Stroke="Black" Fill="Beige" Margin="2.333,2,-2,-2" />
-        <Rectangle Grid.Column="0" Stroke="Black" Fill="AliceBlue" Margin="2,2,0,-2" />
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="23,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164" Height="32" PlaceholderText="Please Enter A Name"/>
-        <TextBox x:Name="dexBox" HorizontalAlignment="Left" Margin="123,101,0,0" TextWrapping="Wrap" Text="" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" VerticalAlignment="Top"/>
-        <Button x:Name="genButton" Content="Generate" HorizontalAlignment="Left" Margin="22,267,0,0" VerticalAlignment="Top" Click="genButton_Click" Height="32" Width="79">
-            <Button.Background>
-                <SolidColorBrush Color="#FFCFCFCF"/>
-            </Button.Background>
-        </Button>
-        <TextBlock x:Name="genDexLabel" HorizontalAlignment="Left" Margin="123,78,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" ToolTipService.ToolTip="Dexterity" Height="20" Width="76"/>
-        <TextBox x:Name="intBox" HorizontalAlignment="Left" Margin="123,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
-        <TextBlock x:Name="genIntLabel" HorizontalAlignment="Left" Margin="123,138,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" ToolTipService.ToolTip="Intelligence" Height="20" Width="97" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="strBox" HorizontalAlignment="Left" Margin="21,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
-        <TextBlock x:Name="genStrLabel" HorizontalAlignment="Left" Margin="21,78,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" ToolTipService.ToolTip="Strength" Height="20" Width="57"/>
-        <ListView x:Name="npcList" Height="173" Margin="25.333,61,11,0" VerticalAlignment="Top" CanDragItems="True" CanReorderItems="True" BorderThickness="2" Background="White" Grid.Column="1">
+    <Grid BorderThickness="1" HorizontalAlignment="Left" Width="378">
+        <Grid.Background>
+            <SolidColorBrush Color="{ThemeResource SystemAltHighColor}"/>
+        </Grid.Background>
+        <ListView x:Name="npcList" HorizontalAlignment="Left" Height="220" Margin="-4,1,0,0" VerticalAlignment="Top" Width="176" BorderThickness="2">
             <ListView.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -53,22 +35,26 @@
                 </LinearGradientBrush>
             </ListView.BorderBrush>
         </ListView>
-        <Button x:Name="addButton" Content="Add To List" HorizontalAlignment="Left" Margin="22,305,0,0" VerticalAlignment="Top" Click="addToList_Click" Height="32" Width="100" Background="#FFCFCFCF"/>
-        <TextBlock x:Name="npcTextBox" HorizontalAlignment="Left" Margin="78.333,29,0,0" TextWrapping="Wrap" Text="NPC List" VerticalAlignment="Top" Height="20" Width="62" Grid.Column="1" RenderTransformOrigin="0.844,1.25"/>
-        <Button x:Name="deleteButton" Content="Delete Selected" HorizontalAlignment="Stretch" Margin="99.333,281,11,0" VerticalAlignment="Top" Click="deleteButton_Click" Height="27" ToolTipService.ToolTip="Select an NPC First" Grid.Column="1" Background="#FFCFCFCF" FontSize="14" Padding="1"/>
-        <Button x:Name="clearALL" Content="Clear List" HorizontalAlignment="Left" Margin="24.333,281,0,0" VerticalAlignment="Top" Width="69" Click="clearALL_Click" Height="27" Grid.Column="1" Background="#FFCFCFCF" Padding="1"/>
-        <TextBlock x:Name="genContText" HorizontalAlignment="Left" Margin="22,138,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top"/>
-        <TextBox x:Name="contBox" HorizontalAlignment="Left" Margin="23,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
-        <TextBlock x:Name="genWisLabel" HorizontalAlignment="Left" Margin="23,198,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top"/>
-        <TextBlock x:Name="genCharLabel" HorizontalAlignment="Left" Margin="123,198,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top"/>
-        <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="23,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
-        <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
-        <Button x:Name="viewStatsButton" Content="View Selected NPC Stats" Grid.Column="1" HorizontalAlignment="Stretch" Margin="24.333,241,12,0" VerticalAlignment="Top" Padding="1" Click="viewStatsButton_Click" Background="#FFCFCFCF"/>
-        <TextBlock x:Name="genStatsText" HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="Stats To Generate" VerticalAlignment="Top" Width="119"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="206,101,0,0" VerticalAlignment="Top" Width="145" IsSynchronizedWithCurrentItem="False" PlaceholderText="Type">
-            <TextBlock x:Name="merchant" Text="Merchant" PointerReleased="radioButtonType_Click" />
-            <TextBlock x:Name="fighter" Text="Fighter" PointerReleased="radioButtonType_Click"/>
-            <TextBlock x:Name="mage" Text="Mage" PointerReleased="radioButtonType_Click"/>
-        </ComboBox>
+        <Button x:Name="viewStatsButton" Content="View Stats" Click="viewStatsButton_Click" HorizontalAlignment="Left" Margin="172,1,0,0" VerticalAlignment="Top">
+            <Button.Background>
+                <SolidColorBrush Color="{ThemeResource SystemAltLowColor}"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="createNewButton" Content="Create New NPC" HorizontalAlignment="Left" Margin="172,34,0,0" VerticalAlignment="Top" Click="createNewButton_Click">
+            <Button.Background>
+                <SolidColorBrush Color="{ThemeResource SystemAltLowColor}"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="deleteButton" Content="Delete Selected" Click="deleteButton_Click" HorizontalAlignment="Left" Margin="172,67,0,0" VerticalAlignment="Top">
+            <Button.Background>
+                <SolidColorBrush Color="{ThemeResource SystemAltLowColor}"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="clearAll" Content="Clear List" Click="clearALL_Click" HorizontalAlignment="Left" Margin="172,100,0,0" VerticalAlignment="Top">
+            <Button.Background>
+                <SolidColorBrush Color="{ThemeResource SystemAltLowColor}"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Page>

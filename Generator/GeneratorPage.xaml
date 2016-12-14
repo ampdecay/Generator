@@ -1,0 +1,108 @@
+﻿<Page
+    x:Class="Generator.GeneratorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Generator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="backButton" Icon="Back" Label="appbarbutton" Click="backButton_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="23,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="164" Height="32" PlaceholderText="Please Enter A Name"/>
+        <TextBox x:Name="dexBox" HorizontalAlignment="Left" Margin="123,101,0,0" TextWrapping="Wrap" Text="" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" VerticalAlignment="Top"/>
+        <Button x:Name="genButton" Content="Generate" HorizontalAlignment="Left" Margin="21,368,0,0" VerticalAlignment="Top" Click="genButton_Click" Height="32" Width="79">
+            <Button.Background>
+                <SolidColorBrush Color="#FFCFCFCF"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="genDexLabel" HorizontalAlignment="Left" Margin="123,78,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" ToolTipService.ToolTip="Dexterity" Height="20" Width="76"/>
+        <TextBox x:Name="intBox" HorizontalAlignment="Left" Margin="123,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBlock x:Name="genIntLabel" HorizontalAlignment="Left" Margin="123,138,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" ToolTipService.ToolTip="Intelligence" Height="20" Width="97" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="strBox" HorizontalAlignment="Left" Margin="21,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBlock x:Name="genStrLabel" HorizontalAlignment="Left" Margin="21,78,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" ToolTipService.ToolTip="Strength" Height="20" Width="57"/>
+        <Button x:Name="addButton" Content="Add To List" HorizontalAlignment="Left" Margin="120,368,0,0" VerticalAlignment="Top" Click="addToList_Click" Height="32" Width="100" Background="#FFCFCFCF"/>
+        <TextBlock x:Name="genContText" HorizontalAlignment="Left" Margin="22,138,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top"/>
+        <TextBox x:Name="contBox" HorizontalAlignment="Left" Margin="23,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBlock x:Name="genWisLabel" HorizontalAlignment="Left" Margin="23,198,0,0" TextWrapping="Wrap" Text="Wisdom" VerticalAlignment="Top"/>
+        <TextBlock x:Name="genCharLabel" HorizontalAlignment="Left" Margin="123,198,0,0" TextWrapping="Wrap" Text="Charisma" VerticalAlignment="Top"/>
+        <TextBox x:Name="wisBox" HorizontalAlignment="Left" Margin="23,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="charBox" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBlock x:Name="genStatsText" HorizontalAlignment="Left" Margin="52,12,0,0" TextWrapping="Wrap" Text="Stats To Generate" VerticalAlignment="Top" Width="119"/>
+        <ComboBox x:Name="typeBox" HorizontalAlignment="Left" Margin="206,101,0,0" VerticalAlignment="Top" Width="145" PlaceholderText="Type">
+            <TextBlock x:Name="merchant" Text="Merchant"  />
+            <TextBlock x:Name="fighter" Text="Fighter" />
+            <TextBlock x:Name="mage" Text="Mage" />
+        </ComboBox>
+        <ComboBox x:Name="raceBox" HorizontalAlignment="Left" Margin="206,163,0,0" VerticalAlignment="Top" Width="144" PlaceholderText="Race">
+            <TextBlock x:Name="dwarf" Text="Dwarf"/>
+            <TextBlock x:Name="elf" Text="Elf"/>
+            <TextBlock x:Name="halfling" Text="Halfling"/>
+            <TextBlock x:Name="human" Text="Human"/>
+            <TextBlock x:Name="dragonborn" Text="Dragonborn"/>
+            <TextBlock x:Name="gnome" Text="Gnome"/>
+            <TextBlock x:Name="halfelf" Text="Half-Elf"/>
+            <TextBlock x:Name="halforc" Text="Half-Orc"/>
+            <TextBlock x:Name="tiefling" Text="Tiefling"/>
+        </ComboBox>
+        <ComboBox x:Name="minBox" HorizontalAlignment="Left" Margin="23,306,0,0" VerticalAlignment="Top" Width="77" PlaceholderText="Min">
+            <TextBlock Text="0"/>
+            <TextBlock Text="1"/>
+            <TextBlock Text="2"/>
+            <TextBlock Text="3"/>
+            <TextBlock Text="4"/>
+            <TextBlock Text="5"/>
+            <TextBlock Text="6"/>
+            <TextBlock Text="7"/>
+            <TextBlock Text="8"/>
+            <TextBlock Text="9"/>
+            <TextBlock Text="10"/>
+            <TextBlock Text="11"/>
+            <TextBlock Text="12"/>
+            <TextBlock Text="13"/>
+            <TextBlock Text="14"/>
+            <TextBlock Text="15"/>
+            <TextBlock Text="16"/>
+            <TextBlock Text="17"/>
+            <TextBlock Text="18"/>
+            <TextBlock Text="19"/>
+            <TextBlock Text="20"/>
+        </ComboBox>
+        <ComboBox x:Name="maxBox" HorizontalAlignment="Left" Margin="123,306,0,0" VerticalAlignment="Top" Width="76" PlaceholderText="Max">
+            <TextBlock Text="0"/>
+            <TextBlock Text="1"/>
+            <TextBlock Text="2"/>
+            <TextBlock Text="3"/>
+            <TextBlock Text="4"/>
+            <TextBlock Text="5"/>
+            <TextBlock Text="6"/>
+            <TextBlock Text="7"/>
+            <TextBlock Text="8"/>
+            <TextBlock Text="9"/>
+            <TextBlock Text="10"/>
+            <TextBlock Text="11"/>
+            <TextBlock Text="12"/>
+            <TextBlock Text="13"/>
+            <TextBlock Text="14"/>
+            <TextBlock Text="15"/>
+            <TextBlock Text="16"/>
+            <TextBlock Text="17"/>
+            <TextBlock Text="18"/>
+            <TextBlock Text="19"/>
+            <TextBlock Text="20"/>
+        </ComboBox>
+        <TextBlock x:Name="statRange" HorizontalAlignment="Left" Margin="74,274,0,0" TextWrapping="Wrap" Text="Stat Range" VerticalAlignment="Top"/>
+        <ComboBox x:Name="alignBox" HorizontalAlignment="Left" Margin="206,223,0,0" VerticalAlignment="Top" Width="144" PlaceholderText="Alignment">
+            <TextBlock Text="Good"/>
+            <TextBlock Text="Nuetral"/>
+            <TextBlock Text="Evil"/>
+        </ComboBox>
+    </Grid>
+</Page>

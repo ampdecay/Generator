@@ -1,7 +1,0 @@
-20,16,12,Yuffie
-17,18,17,Lucy
-12,15,15,Billy
-10,11,15,Sally
-12,17,20,Obama
-16,11,20,Donald Trump
-20,13,12,Rexius Bakskdj

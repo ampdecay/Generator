@@ -35,6 +35,8 @@ namespace Generator
         {
             nameBox.Text = npc.Name;
             typeBox.Text = npc.Type;
+            raceBox.Text = npc.Race;
+            alignBox.Text = npc.Alignment;
             strBox.Text = npc.Strength.ToString();
             dexBox.Text = npc.Dexterity.ToString();
             contBox.Text = npc.Constitution.ToString();
