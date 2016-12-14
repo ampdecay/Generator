@@ -79,6 +79,7 @@ namespace Generator
             charBox.Text = rng.Next(range.min, range.max).ToString();
             typeBox.SelectedIndex = rng.Next(0, 3);
             raceBox.SelectedIndex = rng.Next(0, 10);
+            alignBox.SelectedIndex = rng.Next(0, 3);
         }
         private void setRange()
         {
