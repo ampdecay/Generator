@@ -26,7 +26,6 @@ namespace Generator
         public NPCStatPage()
         {
             this.InitializeComponent();
-            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
         /// <summary>
         /// Displays the NPC stats in the text boxes on the current windows
@@ -49,26 +48,9 @@ namespace Generator
         /// </summary>
         private async void npcError()
         {
-            //data is cached so go ahead and clear it
-            clearStats();
             var dialog = new MessageDialog("Please Go Back and Select an NPC");
             await dialog.ShowAsync();
         }
-        /// <summary>
-        /// Clears all text boxes by inserting empty string
-        /// </summary>
-        private void clearStats()
-        {
-            nameBox.Text = "";
-            strBox.Text = "";
-            dexBox.Text = "";
-            contBox.Text = "";
-            wisBox.Text = "";
-            intBox.Text = "";
-            charBox.Text = "";
-            typeBox.Text = "";
-        }
-
         //EVENTS
         private void backButton_Click(object sender, RoutedEventArgs e)
         {

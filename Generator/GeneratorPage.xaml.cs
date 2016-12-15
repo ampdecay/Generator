@@ -81,7 +81,7 @@ namespace Generator
             wisBox.Text = rng.Next(range.min, range.max).ToString();
             charBox.Text = rng.Next(range.min, range.max).ToString();
             typeBox.SelectedIndex = rng.Next(0, 3);
-            raceBox.SelectedIndex = rng.Next(0, 10);
+            raceBox.SelectedIndex = rng.Next(0, 9);
             alignBox.SelectedIndex = rng.Next(0, 3);
         }
         private void setRange()
@@ -92,15 +92,20 @@ namespace Generator
             {
                 int.TryParse(min.Text, out range.min);
                 int.TryParse(max.Text, out range.max);
+                if (range.min > range.max)
+                    swap();
                 //add 1 to max because it is non inclusive
                 range.max += 1;
-            }
-            else
-            {
-                //arbitrary default values
-                range.min = 10;
-                range.max = 21;
-            }
+            }  
+        }
+        private void swap()
+        {
+            int temp;
+            temp = range.min;
+            range.min = range.max;
+            range.max = temp;
+            minBox.SelectedIndex = range.min;
+            maxBox.SelectedIndex = range.max;
         }
         /// <summary>
         /// Adds NPC to the npcList
@@ -145,5 +150,7 @@ namespace Generator
         {
             this.Frame.GoBack();
         }
+
+       
     }
 }
