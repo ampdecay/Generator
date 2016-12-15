@@ -53,7 +53,6 @@
             <TextBlock x:Name="tiefling" Text="Tiefling"/>
         </ComboBox>
         <ComboBox x:Name="minBox" HorizontalAlignment="Left" Margin="23,306,0,0" VerticalAlignment="Top" Width="77" PlaceholderText="Min">
-            <TextBlock Text="0"/>
             <TextBlock Text="1"/>
             <TextBlock Text="2"/>
             <TextBlock Text="3"/>
@@ -76,7 +75,6 @@
             <TextBlock Text="20"/>
         </ComboBox>
         <ComboBox x:Name="maxBox" HorizontalAlignment="Left" Margin="123,306,0,0" VerticalAlignment="Top" Width="76" PlaceholderText="Max">
-            <TextBlock Text="0"/>
             <TextBlock Text="1"/>
             <TextBlock Text="2"/>
             <TextBlock Text="3"/>

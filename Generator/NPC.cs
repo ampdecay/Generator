@@ -75,7 +75,47 @@ namespace Generator
                 wisdom.ToString() + "," + charisma.ToString() + "," + npcType + "," +
                 npcRace + "," + alignment + "," + name;
         }
-
+        public double statMod(string stat)
+        {
+            double modValue;
+            switch(stat)
+            {
+                case "strength":
+                case "Strength":
+                    modValue = ((double)strength - 10.0) / 2.0;
+                    modValue = Math.Floor(modValue);
+                    break;
+                case "dexterity":
+                case "Dexterity":
+                    modValue = ((double)dexterity - 10.0) / 2.0;
+                    modValue = Math.Floor(modValue);
+                    break;
+                case "constitution":
+                case "Constitution":
+                    modValue = ((double)constitution - 10.0) / 2.0;
+                    modValue = Math.Floor(modValue);
+                    break;
+                case "intelligence":
+                case "Intelligence":
+                    modValue = ((double)intelligence - 10.0) / 2.0;
+                    modValue = Math.Floor(modValue);
+                    break;
+                case "wisdom":
+                case "Wisdom":
+                    modValue = ((double)wisdom - 10.0) / 2.0;
+                    modValue = Math.Floor(modValue);
+                    break;
+                case "charisma":
+                case "Charisma":
+                    modValue = ((double)charisma - 10.0) / 2.0;
+                    modValue = Math.Floor(modValue);
+                    break;
+                default:
+                    modValue = 0;
+                    break;
+            }
+            return modValue;
+        }
     }
 
 

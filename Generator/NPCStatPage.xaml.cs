@@ -43,6 +43,16 @@ namespace Generator
             intBox.Text = npc.Intelligence.ToString();
             charBox.Text = npc.Charisma.ToString();
         }
+        private void displayMods()
+        {
+            strMod.Text = npc.statMod("strength").ToString();
+            dexMod.Text = npc.statMod("dexterity").ToString();
+            contMod.Text = npc.statMod("constitution").ToString();
+            intMod.Text = npc.statMod("intelligence").ToString();
+            wisMod.Text = npc.statMod("wisdom").ToString();
+            charMod.Text = npc.statMod("charisma").ToString();
+
+        }
         /// <summary>
         /// Displays error if no NPC selected
         /// </summary>
@@ -62,6 +72,7 @@ namespace Generator
             {
                 npc = (NPC)e.Parameter;
                 displayStats();
+                displayMods();
             }
             else
             {
