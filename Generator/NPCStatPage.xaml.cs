@@ -45,13 +45,30 @@ namespace Generator
         }
         private void displayMods()
         {
-            strMod.Text = npc.statMod("strength").ToString();
-            dexMod.Text = npc.statMod("dexterity").ToString();
-            contMod.Text = npc.statMod("constitution").ToString();
-            intMod.Text = npc.statMod("intelligence").ToString();
-            wisMod.Text = npc.statMod("wisdom").ToString();
-            charMod.Text = npc.statMod("charisma").ToString();
-
+            if(npc.statMod("strength") > 0)
+                strMod.Text = "+ " + npc.statMod("strength").ToString();
+            else
+                strMod.Text = npc.statMod("strength").ToString();
+            if (npc.statMod("dexterity") > 0)
+                dexMod.Text = "+ " + npc.statMod("dexterity").ToString();
+            else
+                dexMod.Text = npc.statMod("dexterity").ToString();
+            if (npc.statMod("constitution") > 0)
+                contMod.Text = "+ " + npc.statMod("constitution").ToString();
+            else
+                contMod.Text = npc.statMod("constitution").ToString();
+            if (npc.statMod("intelligence") > 0)
+                intMod.Text ="+ " + npc.statMod("intelligence").ToString();
+            else
+                intMod.Text = npc.statMod("intelligence").ToString();
+            if (npc.statMod("wisdom") > 0)
+                wisMod.Text ="+ " + npc.statMod("wisdom").ToString();
+            else
+                wisMod.Text = npc.statMod("wisdom").ToString();
+            if (npc.statMod("charisma") > 0)
+                charMod.Text = "+ " + npc.statMod("charisma").ToString();
+            else
+                charMod.Text = npc.statMod("charisma").ToString();
         }
         /// <summary>
         /// Displays error if no NPC selected

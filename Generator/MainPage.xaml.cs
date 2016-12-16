@@ -141,5 +141,6 @@ namespace Generator
         {
             this.Frame.Navigate(typeof(GeneratorPage), npcList);
         }
+        
     }
 }
