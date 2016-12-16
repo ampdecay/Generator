@@ -26,6 +26,7 @@ namespace Generator
         public NPCStatPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
         /// <summary>
         /// Displays the NPC stats in the text boxes on the current windows
@@ -78,6 +79,25 @@ namespace Generator
             var dialog = new MessageDialog("Please Go Back and Select an NPC");
             await dialog.ShowAsync();
         }
+        private void clearPage()
+        {
+            nameBox.Text = "";
+            typeBox.Text = "";
+            raceBox.Text = "";
+            alignBox.Text = "";
+            strBox.Text = "";
+            dexBox.Text = "";
+            contBox.Text = "";
+            wisBox.Text = "";
+            intBox.Text = "";
+            charBox.Text = "";
+            strMod.Text = "";
+            dexMod.Text = "";
+            contMod.Text = "";
+            intMod.Text = "";
+            wisMod.Text = "";
+            charMod.Text = "";
+        }
         //EVENTS
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
@@ -96,6 +116,11 @@ namespace Generator
                 npcError();
             }
             base.OnNavigatedTo(e);
+        }
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            clearPage();
         }
     }
 }

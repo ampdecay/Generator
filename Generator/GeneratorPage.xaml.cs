@@ -28,6 +28,7 @@ namespace Generator
         public GeneratorPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
         //methods
         /// <summary>
@@ -121,6 +122,21 @@ namespace Generator
             var dialog = new MessageDialog("Please Enter A Name");
             await dialog.ShowAsync();
         }
+        private void clearPage()
+        {
+            strBox.Text = "";
+            dexBox.Text = "";
+            contBox.Text = "";
+            intBox.Text = "";
+            wisBox.Text = "";
+            charBox.Text = "";
+            nameBox.Text = "";
+            typeBox.SelectedIndex = -1;
+            raceBox.SelectedIndex = -1;
+            alignBox.SelectedIndex = -1;
+            minBox.SelectedIndex = -1;
+            maxBox.SelectedIndex = -1;
+        }
         
         //EVENTS
         private void addToList_Click(object sender, RoutedEventArgs e)
@@ -150,7 +166,11 @@ namespace Generator
         {
             this.Frame.GoBack();
         }
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            clearPage();
+        }
 
-       
     }
 }
