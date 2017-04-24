@@ -81,9 +81,13 @@ namespace Generator
             intBox.Text = rng.Next(range.min, range.max).ToString();
             wisBox.Text = rng.Next(range.min, range.max).ToString();
             charBox.Text = rng.Next(range.min, range.max).ToString();
-            typeBox.SelectedIndex = rng.Next(0, 3);
+            typeBox.SelectedIndex = rng.Next(0, 4);
             raceBox.SelectedIndex = rng.Next(0, 9);
             alignBox.SelectedIndex = rng.Next(0, 3);
+            string firstName = names.firstNames[rng.Next(0, 119)];
+            string lastName = names.lastNames[rng.Next(0, 119)];
+            nameBox.Text = firstName + " " + lastName;
+
         }
         private void setRange()
         {
@@ -172,5 +176,19 @@ namespace Generator
             clearPage();
         }
 
+        private void massGen_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 300; i++)
+            {
+                generateStats();
+                NPC temp = createNPC();
+                temp.NPC_ID = i + 1;
+                npcList.Items.Add(temp);
+                clearPage();
+            }
+            npcList.SelectedIndex = (npcList.Items.Count) - 1;
+            this.Frame.GoBack();
+
+        }
     }
 }

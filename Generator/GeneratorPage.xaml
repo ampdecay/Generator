@@ -40,6 +40,7 @@
             <TextBlock x:Name="merchant" Text="Merchant"  />
             <TextBlock x:Name="fighter" Text="Fighter" />
             <TextBlock x:Name="mage" Text="Mage" />
+            <TextBlock x:Name="commoner" Text="Commoner" />
         </ComboBox>
         <ComboBox x:Name="raceBox" HorizontalAlignment="Left" Margin="206,163,0,0" VerticalAlignment="Top" Width="144" PlaceholderText="Race">
             <TextBlock x:Name="dwarf" Text="Dwarf"/>
@@ -102,5 +103,6 @@
             <TextBlock Text="Nuetral"/>
             <TextBlock Text="Evil"/>
         </ComboBox>
+        <Button x:Name="massGen" Content="Mass Genereate" HorizontalAlignment="Left" Margin="23,405,0,0" VerticalAlignment="Top" Click="massGen_Click"/>
     </Grid>
 </Page>

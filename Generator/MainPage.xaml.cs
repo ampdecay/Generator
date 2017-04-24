@@ -73,7 +73,7 @@ namespace Generator
                 foreach (var line in readFile)
                 {
                     splitLine = line.Split(',');
-                    if (splitLine.Length == 10)
+                    if (splitLine.Length == 11)
                         npcFromFile(splitLine);
                 }
                 //SELECT FIRST ITEM IN LIST
@@ -89,16 +89,16 @@ namespace Generator
             int str, dex, intell, cont, wis, charisma;
             string name, type, race, alignment;
             NPC npc;
-            int.TryParse(splitLine[0], out str);
-            int.TryParse(splitLine[1], out dex);
-            int.TryParse(splitLine[2], out cont);
-            int.TryParse(splitLine[3], out intell);
-            int.TryParse(splitLine[4], out wis);
-            int.TryParse(splitLine[5], out charisma);
-            type = splitLine[6];
-            race = splitLine[7];
-            alignment = splitLine[8];
-            name = splitLine[9];
+            int.TryParse(splitLine[1], out str);
+            int.TryParse(splitLine[2], out dex);
+            int.TryParse(splitLine[3], out cont);
+            int.TryParse(splitLine[4], out intell);
+            int.TryParse(splitLine[5], out wis);
+            int.TryParse(splitLine[6], out charisma);
+            type = splitLine[7];
+            race = splitLine[8];
+            alignment = splitLine[9];
+            name = splitLine[10];
             npc = new NPC(str, dex, cont, intell, wis, charisma, name);
             npc.Type = type;
             npc.Race = race;

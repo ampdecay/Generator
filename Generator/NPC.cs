@@ -13,6 +13,7 @@ namespace Generator
     public class NPC
     {
 
+        private int npc_id;
         private int strength;
         private int dexterity;
         private int constitution;
@@ -25,6 +26,7 @@ namespace Generator
         private string alignment;
 
         //properties
+        public int NPC_ID { get { return npc_id; } set { npc_id = value; } }
         public int Strength { get { return strength; } set { strength = value; } }
         public int Dexterity { get { return dexterity; } set { dexterity = value; } }
         public int Constitution { get { return constitution; } set { constitution = value; } }
@@ -70,7 +72,7 @@ namespace Generator
         /// <returns></returns>
         public string npcToText()
         {
-            return strength.ToString() + "," + dexterity.ToString() + "," +
+            return npc_id.ToString() + "," + strength.ToString() + "," + dexterity.ToString() + "," +
                 constitution.ToString() + "," + intelligence.ToString() + "," +
                 wisdom.ToString() + "," + charisma.ToString() + "," + npcType + "," +
                 npcRace + "," + alignment + "," + name;

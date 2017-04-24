@@ -12,7 +12,7 @@ namespace Generator
      /// </summary>
     public class Range
     {
-        public int min = 10;
+        public int min = 8;
         public int max = 21;
     }
 }
