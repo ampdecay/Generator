@@ -30,49 +30,32 @@ namespace Generator
             this.InitializeComponent();
             this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
-        //methods
+
         /// <summary>
         /// Creates an NPC from the stats generated on page
         /// </summary>
         /// <returns>NPC</returns>
-        private NPC createNPC()
+        private NPC CreateNPC()
         {
-            int str, dex, cont, intell, wis, charisma;
-            NPC npcToReturn;
-            int.TryParse(strBox.Text, out str);
-            int.TryParse(dexBox.Text, out dex);
-            int.TryParse(contBox.Text, out cont);
-            int.TryParse(intBox.Text, out intell);
-            int.TryParse(wisBox.Text, out wis);
-            int.TryParse(charBox.Text, out charisma);
-            //create npc with basic stats first
-            npcToReturn = new NPC(str, dex, cont, intell, wis, charisma, nameBox.Text);
-            //set additional stats for npc
-            setType(npcToReturn);
-            setRace(npcToReturn);
-            setAlignment(npcToReturn);
-            return npcToReturn;
+            return new NPC
+            {
+                Name = nameBox.Text,
+                Strength = int.Parse(strBox.Text),
+                Dexterity = int.Parse(dexBox.Text),
+                Intelligence = int.Parse(intBox.Text),
+                Constitution = int.Parse(contBox.Text),
+                Wisdom = int.Parse(wisBox.Text),
+                Charisma = int.Parse(charBox.Text),
+                Type = new Func<string>(() => { TextBlock type = (TextBlock)typeBox.SelectedItem; return type.Text; })(),
+                Race = new Func<string>(() => { TextBlock race = (TextBlock)raceBox.SelectedItem; return race.Text; })(),
+                Alignment = new Func<string>(() => { TextBlock align = (TextBlock)alignBox.SelectedItem; return align.Text; })()
+            };
         }
-        private void setType(NPC npc)
-        {
-            TextBlock type = (TextBlock)typeBox.SelectedItem;
-            npc.Type = type.Text;
-        }
-        private void setRace(NPC npc)
-        {
-            TextBlock race = (TextBlock)raceBox.SelectedItem;
-            npc.Race = race.Text;
-        }
-        private void setAlignment(NPC npc)
-        {
-            TextBlock align = (TextBlock)alignBox.SelectedItem;
-            npc.Alignment = align.Text;
 
-        }
         /// <summary>
         /// Generates the values to place into the text boxes
         /// </summary>
-        private void generateStats()
+        private void GenerateStats()
         {
             setRange();
             strBox.Text = rng.Next(range.min, range.max).ToString();
@@ -101,7 +84,7 @@ namespace Generator
                     swap();
                 //add 1 to max because it is non inclusive
                 range.max += 1;
-            }  
+            }
         }
         private void swap()
         {
@@ -115,9 +98,10 @@ namespace Generator
         /// <summary>
         /// Adds NPC to the npcList
         /// </summary>
-        private void addToList()
+        private void AddToList()
         {
-            npcList.Items.Add(createNPC());
+            NPC npc = CreateNPC();
+            npcList.Items.Add(npc);
             //sets the selected index to the newly created NPC
             npcList.SelectedIndex = (npcList.Items.Count) - 1;
         }
@@ -126,44 +110,43 @@ namespace Generator
             var dialog = new MessageDialog("Please Enter A Name");
             await dialog.ShowAsync();
         }
-        private void clearPage()
+        private void ClearPage()
         {
-            strBox.Text = "";
-            dexBox.Text = "";
-            contBox.Text = "";
-            intBox.Text = "";
-            wisBox.Text = "";
-            charBox.Text = "";
+            strBox.Text = "0";
+            dexBox.Text = "0";
+            contBox.Text = "0";
+            intBox.Text = "0";
+            wisBox.Text = "0";
+            charBox.Text = "0";
             nameBox.Text = "";
-            typeBox.SelectedIndex = -1;
-            raceBox.SelectedIndex = -1;
-            alignBox.SelectedIndex = -1;
-            minBox.SelectedIndex = -1;
-            maxBox.SelectedIndex = -1;
+            typeBox.SelectedIndex = 0;
+            raceBox.SelectedIndex = 0;
+            alignBox.SelectedIndex = 0;
+            minBox.SelectedIndex = 0;
+            maxBox.SelectedIndex = 0;
         }
-        
+
         //EVENTS
         private void addToList_Click(object sender, RoutedEventArgs e)
         {
-            if (nameBox.Text == "")
-            {
+            if (string.IsNullOrEmpty(nameBox.Text))
                 displayAlert();
-            }
             else
             {
-                addToList();
+                AddToList();
                 this.Frame.GoBack();
             }
         }
-      
+
         private void genButton_Click(object sender, RoutedEventArgs e)
         {
-            generateStats();
+            GenerateStats();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null)
-            npcList = (ListView)e.Parameter;
+                npcList = (ListView)e.Parameter;
+            ClearPage();
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -173,18 +156,18 @@ namespace Generator
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            clearPage();
+            ClearPage();
         }
 
         private void massGen_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < 300; i++)
             {
-                generateStats();
-                NPC temp = createNPC();
+                GenerateStats();
+                NPC temp = CreateNPC();
                 temp.NPC_ID = i + 1;
                 npcList.Items.Add(temp);
-                clearPage();
+                ClearPage();
             }
             npcList.SelectedIndex = (npcList.Items.Count) - 1;
             this.Frame.GoBack();
