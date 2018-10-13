@@ -62,13 +62,13 @@ namespace Generator
         /// </summary>
         private async void loadFromFile()
         {
-            npcList.Items.Clear();
             string[] splitLine;
             FileOpenPicker openPicker = new FileOpenPicker();
             openPicker.FileTypeFilter.Add(".npc");
             StorageFile file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
+                npcList.Items.Clear();
                 var readFile = await Windows.Storage.FileIO.ReadLinesAsync(file);
                 foreach (var line in readFile)
                 {
