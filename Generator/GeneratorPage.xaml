@@ -26,7 +26,7 @@
         <TextBlock x:Name="genDexLabel" HorizontalAlignment="Left" Margin="123,78,0,0" TextWrapping="Wrap" Text="Dexterity" VerticalAlignment="Top" ToolTipService.ToolTip="Dexterity" Height="20" Width="76"/>
         <TextBox x:Name="intBox" HorizontalAlignment="Left" Margin="123,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
         <TextBlock x:Name="genIntLabel" HorizontalAlignment="Left" Margin="123,138,0,0" TextWrapping="Wrap" Text="Intelligence" VerticalAlignment="Top" ToolTipService.ToolTip="Intelligence" Height="20" Width="97" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="strBox" HorizontalAlignment="Left" Margin="21,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White"/>
+        <TextBox x:Name="strBox" HorizontalAlignment="Left" Margin="21,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="64" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" Background="White" InputScope="Digits"/>
         <TextBlock x:Name="genStrLabel" HorizontalAlignment="Left" Margin="21,78,0,0" TextWrapping="Wrap" Text="Strength" VerticalAlignment="Top" ToolTipService.ToolTip="Strength" Height="20" Width="57"/>
         <Button x:Name="addButton" Content="Add To List" HorizontalAlignment="Left" Margin="120,368,0,0" VerticalAlignment="Top" Click="addToList_Click" Height="32" Width="100" Background="#FFCFCFCF"/>
         <TextBlock x:Name="genContText" HorizontalAlignment="Left" Margin="22,138,0,0" TextWrapping="Wrap" Text="Constitution" VerticalAlignment="Top"/>
@@ -103,6 +103,7 @@
             <TextBlock Text="Nuetral"/>
             <TextBlock Text="Evil"/>
         </ComboBox>
-        <Button x:Name="massGen" Content="Mass Genereate" HorizontalAlignment="Left" Margin="23,405,0,0" VerticalAlignment="Top" Click="massGen_Click"/>
+        <Button x:Name="massGen" Content="Mass Genereate" HorizontalAlignment="Left" Margin="238,368,0,0" VerticalAlignment="Top" Click="massGen_Click"/>
+        <CheckBox x:Name="randRange" Content="Randomize Range" HorizontalAlignment="Left" Margin="238,306,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

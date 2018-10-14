@@ -57,7 +57,8 @@ namespace Generator
         /// </summary>
         private void GenerateStats()
         {
-            setRange();
+            if (randRange.IsChecked == true)
+                RandomizeRange();
             strBox.Text = rng.Next(range.min, range.max).ToString();
             dexBox.Text = rng.Next(range.min, range.max).ToString();
             contBox.Text = rng.Next(range.min, range.max).ToString();
@@ -92,8 +93,8 @@ namespace Generator
             temp = range.min;
             range.min = range.max;
             range.max = temp;
-            minBox.SelectedIndex = range.min;
-            maxBox.SelectedIndex = range.max;
+            minBox.SelectedIndex = range.min - 1;
+            maxBox.SelectedIndex = range.max - 1;
         }
         /// <summary>
         /// Adds NPC to the npcList
@@ -140,6 +141,7 @@ namespace Generator
 
         private void genButton_Click(object sender, RoutedEventArgs e)
         {
+            setRange();
             GenerateStats();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -172,6 +174,19 @@ namespace Generator
             npcList.SelectedIndex = (npcList.Items.Count) - 1;
             this.Frame.GoBack();
 
+        }
+
+        private void RandomizeRange()
+        {
+            range.min = rng.Next(1, 21);
+            range.max = rng.Next(1, 21);
+            if (range.min > range.max)
+                swap();
+            else
+            {
+                minBox.SelectedIndex = range.min - 1;
+                maxBox.SelectedIndex = range.max - 1;
+            }
         }
     }
 }
